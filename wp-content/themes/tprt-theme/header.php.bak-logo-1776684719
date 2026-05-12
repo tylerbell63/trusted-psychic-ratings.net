@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo('charset'); ?>">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+<header class="site-header" id="site-header">
+<div class="wrap">
+<div class="site-header__inner">
+    <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">Trusted Psychic <span>Ratings</span></a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="<?php esc_attr_e('Toggle menu','tprt-theme'); ?>" aria-expanded="false">
+        <span class="menu-toggle__open"><?php echo tprt_icon('menu'); ?></span>
+        <span class="menu-toggle__close" style="display:none"><?php echo tprt_icon('x'); ?></span>
+    </button>
+    <?php
+    wp_nav_menu([
+        'theme_location' => 'primary',
+        'container'      => 'nav',
+        'container_class'=> 'site-nav',
+        'container_id'   => 'site-nav',
+        'items_wrap'     => '%3$s',
+        'fallback_cb'    => 'tprt_fallback_menu',
+    ]);
+    ?>
+</div>
+</div>
+</header>
+<main id="content">
